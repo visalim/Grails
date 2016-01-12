@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1490993684">
+    <data-source source="LOCAL" name="phonebook dev" uuid="3f86c8f1-a04d-4328-a52c-b5194316eda0">
+      <jdbc-driver>com.mysql.jdbc.driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
