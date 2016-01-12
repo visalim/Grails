@@ -20,10 +20,13 @@
                                                     <i class="glyphicon glyphicon-user"></i>
                                                 </span>
                                                 <g:hiddenField class="form-control" placeholder="Name" name="id" value="${contact.id}"/>
-
                                               <g:textField class="form-control" placeholder="Name" name="name" type="text" value="${contact.name}"/>
-
                                             </div>
+                                            <g:hasErrors bean="${contact}" field="name">
+                                                <g:eachError  bean="${contact}" field="name">
+                                                    <g:message error="${it}" />
+                                                </g:eachError>
+                                            </g:hasErrors>
                                         </div>
                                         <div class="form-group">
                                             <div class="input-group">
@@ -32,6 +35,11 @@
                                                 </span>
                                                 <g:textField class="form-control" placeholder="Email" name="email" type="text" value="${contact.email}"/>
                                             </div>
+                                            <g:hasErrors bean="${contact}" field="email">
+                                                <g:eachError  bean="${contact}" field="email">
+                                                    <g:message error="${it}" />
+                                                </g:eachError>
+                                            </g:hasErrors>
                                         </div>
                                         <div class="form-group">
                                             <div class="input-group">
@@ -40,6 +48,11 @@
                                                 </span>
                                                 <g:textField class="form-control" placeholder="Mobile" name="mobile" type="number" value="${contact.mobile}"/>
                                             </div>
+                                            <g:hasErrors bean="${contact}" field="mobile">
+                                                <g:eachError  bean="${contact}" field="mobile">
+                                                    <g:message error="${it}" />
+                                                </g:eachError>
+                                            </g:hasErrors>
                                         </div>
                                         <div class="form-group">
                                             <g:submitButton name="save" class="btn btn-sm btn-primary btn-block" value="Save"/>

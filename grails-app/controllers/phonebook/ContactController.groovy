@@ -14,14 +14,19 @@ class ContactController {
     }
 
     def save() {
-        Contact contact = null
+        def contact = null
         if (params.id) {
             contact =  contactService.get(params.id as long)
         } else {
             contact = new Contact()
         }
         bindData(contact, params)
-        contactService.save(contact)
+        if(contact.validate()){
+            contactService.save(contact)
+        }else{
+            render view:"contact",model:[contact:contact]
+            return
+        }
         redirect(action: "index")
     }
     def delete(){
@@ -34,7 +39,7 @@ class ContactController {
          render view: "contact", model: [contact : contact]
     }
     def contact(){
-        Contact contact = new Contact()
+        def contact = new Contact()
         render view: "contact", model: [contact : contact]
     }
 
