@@ -1,13 +1,51 @@
 package phonebook
 
-class User {
-    String name
-    String password
+import groovy.transform.EqualsAndHashCode
+import groovy.transform.ToString
+
+@EqualsAndHashCode(includes = 'username')
+@ToString(includes = 'username', includeNames = true, includePackage = false)
+class User implements Serializable {
+
+    private static final long serialVersionUID = 1
+
+    transient springSecurityService
+
     String email
+    String password
+    String name
+    boolean enabled = true
+    boolean accountExpired
+    boolean accountLocked
+    boolean passwordExpired
+
+    Set<Role> getAuthorities() {
+        UserRole.findAllByUser(this).collect { it.role } as Set
+    }
+
+    def beforeInsert() {
+        encodePassword()
+    }
+
+    def beforeUpdate() {
+        if (isDirty('password')) {
+            encodePassword()
+        }
+    }
+
+    protected void encodePassword() {
+        password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
+    }
+
+    static transients = ['springSecurityService']
 
     static constraints = {
-        name nullable:false, blank: false
-        password nullable: false, blank: false,size:5..12
-        email nullable: false, blank: false, unique: true
+        email blank: false, unique: true
+        password blank: false
+        name blank: false
+    }
+
+    static mapping = {
+        password column: '`password`'
     }
 }

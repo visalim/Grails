@@ -43,6 +43,7 @@ grails.controllers.defaultScope = 'singleton'
 
 // GSP settings
 grails {
+
     views {
         gsp {
             encoding = 'UTF-8'
@@ -115,3 +116,40 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'phonebook.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'phonebook.UserRole'
+grails.plugin.springsecurity.authority.className = 'phonebook.Role'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                ['permitAll'],
+	'/index':           ['permitAll'],
+	'/index.gsp':       ['permitAll'],
+	'/assets/**':       ['permitAll'],
+	'/**/js/**':        ['permitAll'],
+	'/**/css/**':       ['permitAll'],
+	'/**/images/**':    ['permitAll'],
+	'/**/favicon.ico':  ['permitAll']
+]
+
+
+
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'phonebook.User'
+grails.plugin.springsecurity.userLookup.usernamePropertyName = 'email'
+grails.plugin.springsecurity.userLookup.passwordPropertyName = 'password'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'phonebook.UserRole'
+grails.plugin.springsecurity.authority.className = 'phonebook.Role'
+grails.plugin.springsecurity.auth.loginFormUrl = "/login"
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = "/contact"
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+        '/':                ['permitAll'],
+        '/index':           ['permitAll'],
+        '/index.gsp':       ['permitAll'],
+        '/assets/**':       ['permitAll'],
+        '/**/js/**':        ['permitAll'],
+        '/**/css/**':       ['permitAll'],
+        '/**/images/**':    ['permitAll'],
+        '/**/favicon.ico':  ['permitAll']
+]
+
