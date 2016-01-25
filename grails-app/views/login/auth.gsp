@@ -43,7 +43,7 @@
                         </form>
                     </div>
                     <div class="panel-footer ">
-                        Don't have an account! <a href="#" onClick=""> Sign Up Here </a>
+                        Don't have an account! <g:link controller="user" action="signup"> Sign Up Here </g:link>
                     </div>
                 </div>
             </div>

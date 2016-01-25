@@ -10,7 +10,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <tr>
-
+                                ${flash.message}
                                 <th><span class="glyphicon glyphicon-user"></span> Name</th>
                                 <th><span class="glyphicon glyphicon-envelope"></span> Email</th>
                                 <th><span class="glyphicon glyphicon-phone-alt"></span> Mobile</th>
@@ -18,7 +18,7 @@
                             </tr>
                             <g:each in="${contacts}" var="contact">
                                 <tr>
-                                    <td>${contact.name}</td>
+                                    <td><g:link action="details" id="${contact.id}">${contact.name}</g:link></td>
                                     <td>${contact.email}</td>
                                     <td>${contact.mobile}</td>
                                     <td>

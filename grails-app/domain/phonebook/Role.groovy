@@ -15,7 +15,7 @@ class Role implements Serializable {
         authority blank: false, unique: true
     }
 
-    static mapping = {
+    static mapping = {//each time the record is retrieved from cache rather than getting from the database
         cache true
     }
 }

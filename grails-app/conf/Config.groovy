@@ -140,13 +140,13 @@ grails.plugin.springsecurity.userLookup.usernamePropertyName = 'email'
 grails.plugin.springsecurity.userLookup.passwordPropertyName = 'password'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'phonebook.UserRole'
 grails.plugin.springsecurity.authority.className = 'phonebook.Role'
-grails.plugin.springsecurity.auth.loginFormUrl = "/login"
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = "/contact"
+grails.plugin.springsecurity.auth.loginFormUrl = "/login"//it should be useful for 401 redirect
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = "/contact"// on successful authentication the page to redirect
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/':                ['permitAll'],
         '/index':           ['permitAll'],
         '/index.gsp':       ['permitAll'],
-        '/assets/**':       ['permitAll'],
+        '/assets/**':       ['permitAll'],// the static resources to access by everyone
         '/**/js/**':        ['permitAll'],
         '/**/css/**':       ['permitAll'],
         '/**/images/**':    ['permitAll'],

@@ -9,10 +9,12 @@
             </div>
         </div>
         <div class="col-md-4">
-            <button type="button" class="btn btn-default btn-sm pull-right">
+            <sec:ifLoggedIn> <!--the below link will only appears for loggedin user-->
+            <g:link action="contact" controller="contact" class="btn btn-default btn-sm pull-right">
                 <span class="glyphicon glyphicon-plus"></span>
                 New contact
-            </button>
+            </g:link>
+            </sec:ifLoggedIn>
         </div>
     </div>
 </div>

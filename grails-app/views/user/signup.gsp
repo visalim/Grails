@@ -64,7 +64,7 @@
                         </form>
                     </div>
                     <div class="panel-footer ">
-                        Already have an account! <a href="#" onClick=""> Sign In Here </a>
+                        Already have an account! <g:link controller="login" action="index"> Sign In Here </g:link>
                     </div>
                 </div>
             </div>

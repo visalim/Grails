@@ -48,9 +48,9 @@
                                                 </span>
                                                 <g:textField class="form-control" placeholder="Mobile" name="mobile" type="number" value="${contact.mobile}"/>
                                             </div>
-                                            <g:hasErrors bean="${contact}" field="mobile">
-                                                <g:eachError  bean="${contact}" field="mobile">
-                                                    <g:message error="${it}" />
+                                            <g:hasErrors bean="${contact}" field="mobile"> <!-- if contact bean has errors -->
+                                                <g:eachError  bean="${contact}" field="mobile"> <!--checks whether the error exists in mobile field with in the bean contact-->
+                                                    <g:message error="${it}" /> <!-- to display the message with current field error-->
                                                 </g:eachError>
                                             </g:hasErrors>
                                         </div>

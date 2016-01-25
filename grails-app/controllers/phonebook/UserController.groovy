@@ -13,7 +13,7 @@ class UserController {
 
     def save() {
         User user = new User()
-        bindData(user, params)
+        bindData(user, params)  // will bind the parameter contents with the contact object
         if (user.validate()) {
             userService.save(user)
         }else{

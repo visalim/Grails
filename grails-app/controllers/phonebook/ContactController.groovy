@@ -13,18 +13,20 @@ class ContactController {
     }
 
     def details() {
-        render(view: "details")
+        def contact = null
+        contact = contactService.get(params.id as long)//will get the id that we are passing from the link
+        render view: "details", model: [contact: contact]
     }
 
     def save() {
         def contact = null
         if (params.id) {
-            contact =  contactService.get(params.id as long)
+            contact =  contactService.get(params.id as long) //here we are getting the id of the contact that we are entering in the contact form
         } else {
             contact = new Contact()
         }
         bindData(contact, params)
-        if(contact.validate()){
+        if(contact.validate()){           //will validate the contact as per the constraints in domain class
             contactService.save(contact)
         }else{
             render view:"contact",model:[contact:contact]
@@ -33,9 +35,14 @@ class ContactController {
         redirect(action: "index")
     }
     def delete(){
-
+        Contact contact = contactService.get(params.id as long)
+        if(contact == null){
+            flash.message = "contact doesnot exists"//to display the error message if contact doesnot exists
+            chain action:"index"
+            return
+        }
         contactService.delete(contact)
-        redirect(action: "index")
+        chain(action: "index")
     }
     def edit(){
         Contact contact = contactService.get(params.id as long)
