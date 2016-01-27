@@ -5,6 +5,7 @@ class Contact {
     String email
     String mobile
 
+    User user  // this will create the userid in contact table.
 
     static constraints = {
         name unique:true,nullable:false,blank:false
